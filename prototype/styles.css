@@ -1,0 +1,17 @@
+h1 {
+    text-align: center;
+}
+
+body {
+    background-color: bisque;
+}
+
+.square {
+    width: 100px;
+    border-radius: 500px;
+}
+
+.text {
+    font-size: 24px;
+    list-style: none;
+}
