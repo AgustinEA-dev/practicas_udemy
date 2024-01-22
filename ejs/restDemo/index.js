@@ -9,6 +9,8 @@ app.use(express.json())
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
+//////////////////////////////////
+
 const comments = [
     {
         id: uuid(),
@@ -35,6 +37,13 @@ app.get('/comments/new', (req, res) => {
     res.render('comments/new')
 })
 
+app.patch('/comments/:id', (req, res) => {
+    const { id } = req.params
+    console.log(req.body.comment)
+    res.send('all good')
+    // const comment = comments.find(c => c.id === id)
+})
+
 app.post('/comments', (req, res) => {
     const { username, comment } = req.body
     comments.push({ username, comment, id: uuid() })
@@ -47,6 +56,7 @@ app.get('/comments/:id', (req, res) => {
     res.render('comments/show', { comment })
 })
 
+/////////////////////////////////////////
 
 app.get('/tacos', (req, res) => {
     res.send('Tacos response')
@@ -57,6 +67,8 @@ app.post('/tacos', (req, res) => {
     console.log(req.body)
 
 })
+
+///////////////////////////////////////
 
 app.listen(3000, () => {
     console.log('ON PORT 3000')
