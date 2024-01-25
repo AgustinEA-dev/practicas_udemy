@@ -31,8 +31,18 @@ const productSchema = new mongoose.Schema({
     }
 })
 
+productSchema.methods.greet = function () {
+    console.log('HELLOOOOOO')
+    console.log(`- from ${this.name}`)
+}
 
 const Product = mongoose.model('Product', productSchema)
+
+const findProduct = async () => {
+    const foundProduct = await Product.findOne({ name: 'bike Helmet' })
+    foundProduct.greet()
+}
+findProduct()
 
 // const bike = new Product({ name: 'Cyclin Jersey', price: 28.50, categories: ['Cyclin'], size: 'S' })
 // bike.save()
