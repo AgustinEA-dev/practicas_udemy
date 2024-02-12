@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
+const { Schema } = mongoose;
 
-const productsChema = new mongoose.Schema({
+const productsChema = new Schema({
     name: {
         type: String,
         required: true
@@ -13,7 +14,13 @@ const productsChema = new mongoose.Schema({
     category: {
         type: String,
         enum: ['fruit', 'vegetables', 'dairy']
-    }
+    },
+    farm: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Farm'
+        }
+    ]
 })
 
 const Product = mongoose.model('Product', productsChema)
