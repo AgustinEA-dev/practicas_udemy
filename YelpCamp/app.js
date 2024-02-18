@@ -11,7 +11,7 @@ const LocalStrategy = require('passport-local')
 const User = require('./models/user.js')
 
 const userRoutes = require('./routes/users')
-const campgroundRoutes = require('./routes/campgorunds.js')
+const campgroundRoutes = require('./routes/campgrounds.js')
 const reviewRoutes = require('./routes/reviews.js')
 
 
